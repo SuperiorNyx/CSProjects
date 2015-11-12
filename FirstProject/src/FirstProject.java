@@ -4,8 +4,16 @@ public class FirstProject {
 		Scanner console = new Scanner(System.in);
 		System.out.println("Type a number from 1-100: ");
 		int number = console.nextInt();
-		checkMismatch(console, number);
-		
+	    System.out.println("Do you want to put in a second number? ");
+	    String yn = console.next();
+	    if(yn.substring(0,1).equals("y")){
+	      System.out.println("Type a number from 1-100: ");
+	         int number2 = console.nextInt();
+	         gcd(number, number2);
+	      } else {
+	         System.out.println("Factors of " + number);
+			   checkMismatch(console, number);
+	      }
 	}
 	
 	public static void checkMismatch(Scanner console, int number){
@@ -31,6 +39,10 @@ public class FirstProject {
 		}
 		System.out.print(number);
 		quit(console, number);
+	}
+	
+	public static void gcd(int number, int number2){
+		
 	}
 	
 	public static void quit(Scanner console, int number){
