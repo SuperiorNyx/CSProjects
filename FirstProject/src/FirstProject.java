@@ -9,11 +9,11 @@ public class FirstProject {
 			System.out.print("Do you want to enter a second number? ");
 			String yn = console.next();
 			if(yn.substring(0,1).toLowerCase().equals("y")){
-            System.out.print("Type a number from 1-100: ");
+				System.out.print("Type a number from 1-100: ");
 				int number2 = checkMismatch(console, 0);
-            System.out.print("Greatest Common Divisor of " + number + " and " 
+				System.out.print("Greatest Common Divisor of " + number + " and " 
                                  + number2 + " is: " + gcd(number, number2));
-            run = quit(console, run);
+				run = quit(console, run);
 			} else {
 				factor(number);
 				run = quit(console, run);
@@ -28,14 +28,13 @@ public class FirstProject {
 				System.out.print("Please input a number between 1 and 100: ");
 				number = checkMismatch(console, number);
 			} else {
-				number = (int) number;
-				return (int)number;
+				return number;
 			}
 		} catch(NumberFormatException e){
 			System.out.print("Only integer values allowed. Please input a number between 1 and 100: ");
 			number = checkMismatch(console, number);
 		}
-		return (int)number;
+		return number;
 	}
 	
 	public static void factor(int number){
@@ -51,8 +50,9 @@ public class FirstProject {
 	public static int gcd(int number, int number2){
 		int biggest = number;
 		int smallest = number2;
-		if(number2>number){
-			biggest = number2; smallest = number; 
+		if(number2 > number){
+			biggest = number2; 
+			smallest = number; 
 		}
 		if(smallest==0){
 			return biggest; 
@@ -67,8 +67,7 @@ public class FirstProject {
 		if(quit.substring(0,1).toLowerCase().equals("q") || quit.substring(0,1).toLowerCase().equals("y")){
 			run = false;
 			return run;
-		} else if (quit.substring(0,1).toLowerCase().equals("n")){ 
-			run = true;
+		} else if (quit.substring(0,1).toLowerCase().equals("n")){
 			return run;
 		}
 		return run;
