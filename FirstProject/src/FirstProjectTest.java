@@ -29,7 +29,7 @@ public class FirstProjectTest {
 	
 	}
 	
-	//Tests if checkMismatch() correctly recognizes an int
+	//Tests if checkMismatch() correctly recognizes and returns an int
 	@Test
 	public void testCheckInt(){
 		Scanner console = new Scanner(System.in);

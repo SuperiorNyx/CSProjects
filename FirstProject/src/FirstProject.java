@@ -16,12 +16,12 @@ public class FirstProject {
                                  + number2 + " is: " + gcd(number, number2));
 				System.out.print("\nQuit? ");
 				stop = console.next();
-				run = quit(stop,run);
+				run = quit(stop, run);
 			} else {
 				System.out.print(factor(number));
 				System.out.print("\nQuit? ");
 				stop = console.next();
-				run = quit(stop,run);
+				run = quit(stop, run);
 			}
 		} 
 	}
@@ -49,7 +49,7 @@ public class FirstProject {
 					factored += (i + " ");
 				}
 			}
-		factored += (number);
+		factored += number;
 		return factored;
 	}
 	
