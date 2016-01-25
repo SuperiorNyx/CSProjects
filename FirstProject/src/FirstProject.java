@@ -3,6 +3,7 @@ public class FirstProject {
 	public static void main(String[] args){
 		Scanner console = new Scanner(System.in);
 		boolean run = true;
+		String stop = "";
 		while(run){
 			System.out.print("Type a number from 1-100: ");
 			int number = checkMismatch(console, 0);
@@ -13,10 +14,14 @@ public class FirstProject {
 				int number2 = checkMismatch(console, 0);
 				System.out.print("Greatest Common Divisor of " + number + " and " 
                                  + number2 + " is: " + gcd(number, number2));
-				run = quit(console, run);
+				System.out.print("\nQuit? ");
+				stop = console.next();
+				run = quit(stop,run);
 			} else {
-				factor(number);
-				run = quit(console, run);
+				System.out.print(factor(number));
+				System.out.print("\nQuit? ");
+				stop = console.next();
+				run = quit(stop,run);
 			}
 		} 
 	}
@@ -37,14 +42,15 @@ public class FirstProject {
 		return number;
 	}
 	
-	public static void factor(int number){
-      System.out.print("Factors of " + number + ": ");
-		for (int i = 1; i < number; i++){
-			if(number % i == 0){
-				System.out.print(i + " ");
+	public static String factor(int number){
+		String factored = "Factors of " + number + ": ";
+			for (int i = 1; i < number; i++){
+				if(number % i == 0){
+					factored += (i + " ");
+				}
 			}
-		}
-		System.out.print(number);
+		factored += (number);
+		return factored;
 	}
 	
 	public static int gcd(int number, int number2){
@@ -61,13 +67,11 @@ public class FirstProject {
 		}
 	}
 	
-	public static boolean quit(Scanner console, boolean run){
-		System.out.print("\nQuit? ");
-		String quit = console.next();
-		if(quit.substring(0,1).toLowerCase().equals("q") || quit.substring(0,1).toLowerCase().equals("y")){
+	public static boolean quit(String quit, boolean run){		
+		if(quit.substring(0,1).equalsIgnoreCase("q") || quit.substring(0,1).equalsIgnoreCase("y")){
 			run = false;
 			return run;
-		} else if (quit.substring(0,1).toLowerCase().equals("n")){
+		} else if (quit.substring(0,1).equalsIgnoreCase("n")){
 			return run;
 		}
 		return run;
